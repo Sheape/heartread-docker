@@ -60,8 +60,9 @@ def plot_ecg(filename):
     ecg_plot.save_as_svg(filename_only)
 
 
-def createPlot(filename):
-    downloadFile(filename)
+def create_plot(filename):
+    if not os.path.isfile(filename):
+        downloadFile(filename)
     raw_filename, _ = os.path.splitext(filename)
     svgFile = f"{raw_filename}.svg"
     plot_ecg(filename)
@@ -70,6 +71,8 @@ def createPlot(filename):
 
 
 def ecg_predict(filename):
+    if not os.path.isfile(filename):
+        downloadFile(filename)
     ecg = load_mat(filename)
     reshaped_ecg = ecg.reshape(1, 5000, 12)
     prediction = model.predict(x=reshaped_ecg)
