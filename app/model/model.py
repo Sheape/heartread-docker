@@ -1,6 +1,7 @@
 from keras.models import load_model
 from scipy.io import loadmat
 from scipy.signal import filtfilt, butter
+from app.cloudflare_r2 import deleteFile, uploadFile, downloadFile
 import numpy as np
 import os
 import ecg_plot
@@ -57,6 +58,15 @@ def plot_ecg(filename):
     filename_only, _ = os.path.splitext(filename)
     ecg_plot.plot_12(ecg_data/1000, sample_rate=500, title="12-Lead ECG Graph")
     ecg_plot.save_as_svg(filename_only)
+
+
+def createPlot(filename):
+    downloadFile(filename)
+    raw_filename, _ = os.path.splitext(filename)
+    svgFile = f"{raw_filename}.svg"
+    plot_ecg(filename)
+    deleteFile(filename)
+    uploadFile(svgFile)
 
 
 def ecg_predict(filename):

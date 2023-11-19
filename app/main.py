@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.model.model import ecg_predict
 from app.model.model import __version__ as model_version
+# from app.cloudflare_r2 import
 
 app = FastAPI()
 
@@ -9,9 +10,6 @@ app = FastAPI()
 class FileInput(BaseModel):
     filename: str
 
-
-# class PredictionOut(BaseModel):
-#     classifications: dict
 
 @app.get("/")
 def home():
