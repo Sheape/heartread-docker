@@ -10,14 +10,14 @@ class FileInput(BaseModel):
     filename: str
 
 
-class PredictionOut(BaseModel):
-    classifications: dict
+# class PredictionOut(BaseModel):
+#     classifications: dict
 
 @app.get("/")
 def home():
     return {"status": "OK", "model_version": model_version}
 
-@app.post("/predict/ecg", response_model=PredictionOut)
+@app.post("/predict/ecg")
 def ecg_classify(payload: FileInput):
     classifications = ecg_predict(payload.filename)
     return {"clasifications": classifications}
