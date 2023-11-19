@@ -3,14 +3,9 @@ import os
 
 bucket_name = 'heartread'
 
-with open('/run/secrets/CLOUDFLARE_ID', 'r') as cloudflare_id:
-    account_id = cloudflare_id.read().strip()
-
-with open('/run/secrets/CLOUDFLARE_ACCESS_KEY', 'r') as cloudflare_access_key:
-    access_key = cloudflare_access_key.read().strip()
-
-with open('/run/secrets/CLOUDFLARE_ACCESS_TOKEN', 'r') as cloudflare_access_token:
-    access_token = cloudflare_access_token.read().strip()
+account_id = '029f0106964074a4f770bec895bc9d60'
+access_key = 'eb7735c096afb7255ae3f420966a2d04'
+access_token = '7a843eb2e7759aebfdf147419123c443e71cd4f9ecc6af15b458ca73e88627d5'
 
 s3 = boto3.client(
     endpoint_url = f"https://{account_id}.r2.cloudflarestorage.com",
