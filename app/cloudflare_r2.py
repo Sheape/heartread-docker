@@ -8,6 +8,7 @@ access_key = 'eb7735c096afb7255ae3f420966a2d04'
 access_token = '7a843eb2e7759aebfdf147419123c443e71cd4f9ecc6af15b458ca73e88627d5'
 
 s3 = boto3.client(
+    service_name = "s3",
     endpoint_url = f"https://{account_id}.r2.cloudflarestorage.com",
     aws_access_key_id = access_key,
     aws_secret_access_key = access_token
