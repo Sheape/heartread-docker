@@ -1,4 +1,5 @@
 keras==2.14.0
 tensorflow-cpu
+matplotlib
 scipy==1.11.3
 ecg-plot==0.2.8

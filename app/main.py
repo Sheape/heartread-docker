@@ -17,7 +17,7 @@ class PredictionOut(BaseModel):
 def home():
     return {"status": "OK", "model_version": model_version}
 
-@app.post("/predict/ecg")
+@app.post("/predict/ecg", response_model=PredictionOut)
 def ecg_classify(payload: FileInput):
     classifications = ecg_predict(payload.filename)
-    return classifications
+    return {"clasifications": classifications}
