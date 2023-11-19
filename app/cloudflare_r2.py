@@ -3,13 +3,13 @@ import os
 
 bucket_name = 'heartread'
 
-with open('/run/secrets/CLOUDFLARE_ID', 'r') as cloudflare_id:
+with open('.env.id', 'r') as cloudflare_id:
     account_id = cloudflare_id.read().strip()
 
-with open('/run/secrets/CLOUDFLARE_ACCESS_KEY', 'r') as cloudflare_access_key:
+with open('.env.access_key', 'r') as cloudflare_access_key:
     access_key = cloudflare_access_key.read().strip()
 
-with open('/run/secrets/CLOUDFLARE_ACCESS_TOKEN', 'r') as cloudflare_access_token:
+with open('.env.access_token', 'r') as cloudflare_access_token:
     access_token = cloudflare_access_token.read().strip()
 
 s3 = boto3.client(
