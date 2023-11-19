@@ -21,4 +21,4 @@ def downloadFile(filename):
     s3.download_file(bucket_name, filename, filename)
 
 def uploadFile(filename):
-    s3.upload_file(bucket_name, filename, filename)
+    s3.upload_file(filename, bucket_name, filename)
