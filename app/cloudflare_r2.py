@@ -13,8 +13,8 @@ with open('/run/secrets/CLOUDFLARE_ACCESS_TOKEN', 'r') as cloudflare_access_toke
     access_token = cloudflare_access_token.read().strip()
 
 s3 = boto3.client(
-    endpoint_url: f"https://{account_id}.r2.cloudflarestorage.com",
-    aws_access_key_id = access_key
+    endpoint_url = f"https://{account_id}.r2.cloudflarestorage.com",
+    aws_access_key_id = access_key,
     aws_secret_access_key = access_token
 )
 
