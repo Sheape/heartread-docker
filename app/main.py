@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.model.model import ecg_predict, create_plot
 from app.model.model import __version__ as model_version
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 # from app.cloudflare_r2 import
 
 app = FastAPI()
