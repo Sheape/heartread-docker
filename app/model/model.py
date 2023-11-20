@@ -66,7 +66,6 @@ def create_plot(filename):
     raw_filename, _ = os.path.splitext(filename)
     svgFile = f"{raw_filename}.svg"
     plot_ecg(filename)
-    deleteFile(filename)
     uploadFile(svgFile)
 
 
