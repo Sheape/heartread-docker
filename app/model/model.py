@@ -57,16 +57,16 @@ def plot_ecg(filename):
     ecg_data = load_mat(filename)
     filename_only, _ = os.path.splitext(filename)
     ecg_plot.plot_12(ecg_data/1000, sample_rate=500, title="12-Lead ECG Graph")
-    ecg_plot.save_as_svg(filename_only)
+    ecg_plot.save_as_png(filename_only)
 
 
 def create_plot(filename):
     if not os.path.isfile(filename):
         downloadFile(filename)
     raw_filename, _ = os.path.splitext(filename)
-    svgFile = f"{raw_filename}.svg"
+    pngFile = f"{raw_filename}.png"
     plot_ecg(filename)
-    uploadFile(svgFile)
+    uploadFile(pngFile)
 
 
 def ecg_predict(filename):
