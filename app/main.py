@@ -28,7 +28,7 @@ def home():
 @app.post("/predict/ecg")
 def ecg_classify(payload: FileInput):
     classifications = ecg_predict(payload.filename)
-    return {"clasifications": classifications}
+    return {"classifications": classifications}
 
 @app.post("/plot")
 def plot_ecg(payload: FileInput):
