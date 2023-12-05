@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from app.model.model import ecg_predict, create_plot
 from app.model.model import __version__ as model_version
@@ -16,6 +17,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+app.mount("/public", StaticFiles(directory="public"), name="static")
 
 class FileInput(BaseModel):
     filename: str
